@@ -1,9 +1,7 @@
-import { useEffect, useState } from "react";
 import BasicProps from "./components/BasicProps";
 import AdvencedProps from "./components/AdvencedProps";
 import Heading from "./components/Heading";
 import ClickEvent from "./components/events/ClickEvent";
-import ChangeEvent from "./components/events/ChangeEvent";
 import { ThemeContextProvider } from "./components/hooks/context/UseContextHook";
 import { UserProivder } from "./components/hooks/context/UserContext";
 import User from "./components/hooks/context/User";
@@ -14,15 +12,12 @@ import { RestrictingProps } from "./components/RestrictingProps";
 import { Toast } from "./components/TemplateLiteralType";
 import { CustomButton } from "./components/html/Button";
 import { Text } from "./components/polymorpich/Text";
+import UserForm from "./components/form/UserForm";
 function App() {
-  const [count, setCount] = useState<number>(0);
-  useEffect(() => {
-    setInterval(() => {
-      setCount((prevCount) => prevCount + 1);
-    }, 1000);
-  });
 
-  console.log(count);
+  
+  
+
   return (
     <ThemeContextProvider>
       <UserProivder>
@@ -47,10 +42,7 @@ function App() {
           // handleClick={() =>   console.log("bla blaaa")}
           handleClick={(e) => console.log(e.target)}
         />
-        <ChangeEvent
-          value={count}
-          handleChange={(e) => console.log(e.target.value)}
-        />
+    
         <User />
         <Private isLogin={true} Component={Profile} />
         <List
@@ -73,9 +65,13 @@ function App() {
         <Text as="p" size="md">  paragraph</Text>
         <Text as="label" size="sm">  Label</Text>
         <Text as="a" href="bla bla" size="sm">  a tag </Text>
+        <UserForm  />
       </UserProivder>
     </ThemeContextProvider>
   );
+   
+
+
 }
 
 export default App;
