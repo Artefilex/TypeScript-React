@@ -40,7 +40,7 @@ function buildName(firstName: string, lastName?: string): string {
     return firstName;
   }
 }
-```
+``` 
 
 4. Varsayılan Değerler:
 
